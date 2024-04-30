@@ -5,13 +5,14 @@ import FriendList from '../FriendList/FriendList'
 import friends from '../../data/friends.json'
 import transactions from '../../data/transactions.json'
 import TransactionHistory from '../TransactionHistory/TransactionHistory'
+import Description from '../Description/Description'
 
 function App() {
 
 
   return (
     <>
-      <Profile
+      {/* <Profile
         name={userData.username}
         tag={userData.tag}
         location={userData.location}
@@ -19,7 +20,8 @@ function App() {
         stats={userData.stats}
       />
       <FriendList friends={friends} />
-      <TransactionHistory transactions={transactions} />
+      <TransactionHistory transactions={transactions} /> */}
+  <Description />
     </>
   )
 }
