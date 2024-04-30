@@ -1,0 +1,43 @@
+.profileWrap {
+  /* width: 1065px;
+  height: 1155px; */
+  border: 5px solid black;
+  /* padding: 40px; */
+}
+.profileImage {
+  width: 412px;
+  height: 410px;
+  border-radius: 50%;
+  background: #2a2a2a;
+  margin: 40px;
+  margin-bottom: 0;
+}
+.profileName {
+  font-size: 48px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-weight: bold;
+}
+.profileTag {
+  color: #808080;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 24px;
+}
+.profileList {
+  /* margin-top: 50px; */
+  display: flex;
+  /* justify-content: space-evenly; */
+  list-style: none;
+}
+.profileItem {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  display: flex;
+  flex-direction: column;
+  background-color: #d3d3d3;
+  width: calc(100% / 3);
+  border: 2px #808080 solid;
+  padding: 5px;
+}
+.profileBold {
+  font-weight: bold;
+}
