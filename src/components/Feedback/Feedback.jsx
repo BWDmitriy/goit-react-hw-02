@@ -1,10 +1,15 @@
-import styles from './Feedback.module.css';
 import Notification from '../Notification/Notification';
 
-const Feedback = (prop) => {
+const Feedback = ({value, totalfeedback, positivefeedback}) => {
     return (
-      <div>{prop.totalfeedback > 0
-          ? `Good: ${prop.value.good};Neutral: ${prop.value.neutral};Bad: ${prop.value.bad}; `
+      <div className='divider'>{totalfeedback > 0
+          ? <div>
+      <p>Good: {value.good}</p>
+      <p>Neutral: {value.neutral}</p>
+      <p>Bad: {value.bad}</p>
+                <p>Total: {totalfeedback}</p>
+                <p>Positive: {positivefeedback}%</p>
+    </div>
             : <Notification />}
         </div>
       
@@ -12,3 +17,4 @@ const Feedback = (prop) => {
 }
 
 export default Feedback;
+

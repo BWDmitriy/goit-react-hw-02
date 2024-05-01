@@ -1,10 +1,4 @@
 import './App.css'
-import Profile from '../Profile/Profile'
-import userData from '../../data/userData.json'
-import FriendList from '../FriendList/FriendList'
-import friends from '../../data/friends.json'
-import transactions from '../../data/transactions.json'
-import TransactionHistory from '../TransactionHistory/TransactionHistory'
 import Description from '../Description/Description'
 import Options from '../Options/Options'
 import { useState, useEffect } from 'react'
@@ -34,26 +28,21 @@ const resetFeedback = () => {
 }
 
  const [totalFeedback, setTotalFeedback] = useState(0);
+ const [positiveFeedback, setPositiveFeedback] = useState(0);
 
  useEffect(() => {
     const total = Object.values(values).reduce((acc, curr) => acc + curr, 0);
     setTotalFeedback(total);
- }, [values]);
 
+    const positivePercentage = total > 0 ? ((values.good + values.neutral) / total) * 100 : 0;
+    setPositiveFeedback(positivePercentage);
+ }, [values]);
+  
  return (
     <>
-      {/* <Profile
-        name={userData.username}
-        tag={userData.tag}
-        location={userData.location}
-        image={userData.avatar}
-        stats={userData.stats}
-      />
-      <FriendList friends={friends} />
-      <TransactionHistory transactions={transactions} /> */}
       <Description />
       <Options setValue={updateFeedback} resetValues={resetFeedback} />
-      <Feedback value={values} totalfeedback={totalFeedback} />
+      <Feedback value={values} totalfeedback={totalFeedback} positivefeedback={positiveFeedback} />
     </>
  )
 }

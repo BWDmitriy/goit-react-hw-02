@@ -1,6 +1,6 @@
 const Notification = () => {
     return (
-      <p>No feedback yet</p>
+      <p className='divider'>No feedback yet</p>
 );
 }
 
