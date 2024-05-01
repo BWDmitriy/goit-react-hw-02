@@ -1,8 +1,6 @@
-import styles from './Description.module.css';
-
-const Description = (prop) => {
+const Description = () => {
     return (
-      <div className='divider'><h1>Sip Happens Café</h1>
+      <div className='divider'><h1 className='divider'>Sip Happens Café</h1>
       <p>Please leave your feedback about our service by selecting one of the options below.</p></div>
       
 );
