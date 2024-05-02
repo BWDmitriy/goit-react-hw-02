@@ -1,7 +1,7 @@
 import './App.css'
 import Description from '../Description/Description'
 import Options from '../Options/Options'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Feedback from '../Feedback/Feedback'
 import Notification from '../Notification/Notification'
 
@@ -39,22 +39,14 @@ function App() {
     window.localStorage.setItem("saved-values", JSON.stringify(resetValues)); // Save the reset values to localStorage
  }
 
- const [totalFeedback, setTotalFeedback] = useState(0);
- const [positiveFeedback, setPositiveFeedback] = useState(0);
-
- useEffect(() => {
-    const total = Object.values(values).reduce((acc, curr) => acc + curr, 0);
-    setTotalFeedback(total);
-
-    const positivePercentage = total > 0 ? Math.round(((values.good + values.neutral) / total) * 100) : 0;
-    setPositiveFeedback(positivePercentage);
- }, [values]);
+ const totalFeedback = Object.values(values).reduce((acc, curr) => acc + curr, 0);
+ const positiveFeedback = totalFeedback > 0 ? Math.round(((values.good + values.neutral) / totalFeedback) * 100) : 0;
 
  return (
     <>
       <Description />
-     <Options setValue={updateFeedback} resetValues={resetFeedback} feedbackcount={totalFeedback} />
-     {totalFeedback > 0 ? <Feedback value={values} totalfeedback={totalFeedback} positivefeedback={positiveFeedback} /> : <Notification />} 
+      <Options setValue={updateFeedback} resetValues={resetFeedback} feedbackcount={totalFeedback} />
+      {totalFeedback > 0 ? <Feedback value={values} totalfeedback={totalFeedback} positivefeedback={positiveFeedback} /> : <Notification />} 
     </>
  )
 }
