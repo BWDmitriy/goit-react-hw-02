@@ -1,5 +1,3 @@
-import Notification from '../Notification/Notification';
-
 const Feedback = ({value, totalfeedback, positivefeedback}) => {
     return (
       <div className='divider'>
