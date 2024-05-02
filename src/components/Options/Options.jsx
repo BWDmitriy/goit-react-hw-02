@@ -13,7 +13,8 @@ const Options = (props) => {
 <div className='divider'><button onClick={() => handleButtonClick('good')}>Good</button>
       <button onClick={() => handleButtonClick('neutral')}>Neutral</button>
       <button onClick={() => handleButtonClick('bad')}>Bad</button>
-      <button onClick={() => handleReset()}>Reset</button></div>
+      {props.feedbackcount> 0 && <button onClick={handleReset}>Reset</button>}
+      </div>
          
  );
 }

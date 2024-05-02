@@ -3,6 +3,7 @@ import Description from '../Description/Description'
 import Options from '../Options/Options'
 import { useState, useEffect } from 'react'
 import Feedback from '../Feedback/Feedback'
+import Notification from '../Notification/Notification'
 
 function App() {
  const [values, setValues] = useState(() => {
@@ -52,8 +53,8 @@ function App() {
  return (
     <>
       <Description />
-      <Options setValue={updateFeedback} resetValues={resetFeedback} />
-      <Feedback value={values} totalfeedback={totalFeedback} positivefeedback={positiveFeedback} />
+     <Options setValue={updateFeedback} resetValues={resetFeedback} feedbackcount={totalFeedback} />
+     {totalFeedback > 0 ? <Feedback value={values} totalfeedback={totalFeedback} positivefeedback={positiveFeedback} /> : <Notification />} 
     </>
  )
 }
